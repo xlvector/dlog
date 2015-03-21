@@ -9,4 +9,6 @@ func TestLogger(t *testing.T) {
 	Info("hello %s", "world")
 	Error("hello %s", "world")
 	Info("hello %s", "world")
+
+	Println("hello", "world")
 }

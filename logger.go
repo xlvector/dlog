@@ -30,6 +30,10 @@ func Info(format string, v ...interface{}) {
 	}
 }
 
+func Println(v ...interface{}) {
+	lg.Output(2, fmt.Sprint(v...))
+}
+
 func Warn(format string, v ...interface{}) {
 	if Level >= WARN {
 		escapeCode := color.Colorize("y")
@@ -63,6 +67,13 @@ func Debug(format string, v ...interface{}) {
 func Fatal(format string, v ...interface{}) {
 	if Level >= FATAL {
 		lg.Output(2, fmt.Sprintf("[FATAL] "+format, v...))
+		os.Exit(1)
+	}
+}
+
+func Fatalln(v ...interface{}) {
+	if Level >= FATAL {
+		lg.Output(2, fmt.Sprint(v...))
 		os.Exit(1)
 	}
 }
